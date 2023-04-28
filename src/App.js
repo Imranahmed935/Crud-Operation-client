@@ -1,3 +1,4 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./App.css";
 import AddUser from "./Component/AddUser";
 import AllUsers from "./Component/AllUsers";
@@ -6,12 +7,14 @@ import Navbar from "./Component/Navbar";
 
 function App() {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar></Navbar>
-      <CrudOperation></CrudOperation>
-      <AllUsers></AllUsers>
-      <AddUser></AddUser>
-    </div>
+      <Routes>
+        <Route path="/" element={<CrudOperation />} />
+        <Route path="allUsers" element={<AllUsers />} />
+        <Route path="addUser" element={<AddUser />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
